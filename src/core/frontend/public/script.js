@@ -18,6 +18,25 @@ const url = `https://nominatim.openstreetmap.org/reverse?lat=${iss.latitude}&lon
 const locationResponse = await fetch(url)
 const locationData = await locationResponse.json()
 const country = locationData.address?.country
+const countryCode = locationData.address?.country_code?.toUpperCase()
+
+let lastTunedCountry = null
+
+async function updateRadio()  {
+  if (!countryCode || countryCode === lastTunedCountry) return
+  
+    const radio_response = await fetch(`/api/stations?country=${countryCode}`)
+    const data = await radio_response.json()
+   document.getElementById("radio-player").src =  data.stations[0]?.url_resolved
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -58,3 +77,6 @@ console.log({
 })
 
 myGlobe.polygonsData(country_polygon ? [country_polygon] : [])
+
+
+setInterval(updateRadio, 90_000)
