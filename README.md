@@ -6,7 +6,7 @@ A real-time International Space Station (ISS) orbital companion designed to comb
 
 ---
 
-## ✨ Features
+## Features
 
 * **Live ISS Telemetry:** Tracks real-time latitude, longitude, and timezone overhead.
 * **Ground Radio & Seamless Failover:** Streams live local radio stations from the country below, automatically switching to ambient/lounge audio when flying over oceans or experiencing signal drops.
@@ -15,7 +15,7 @@ A real-time International Space Station (ISS) orbital companion designed to comb
 
 ---
 
-## 🛠️ Tech Stack & APIs
+## Tech Stack & APIs
 
 * **Backend:** Python, Flask
 * **Frontend:** HTML, CSS, JavaScript, Bootstrap
@@ -32,7 +32,7 @@ default `10000`) and `limit` (1–50, default `3`) parameters are also supported
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 ```bash
