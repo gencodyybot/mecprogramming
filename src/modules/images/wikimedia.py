@@ -1,7 +1,6 @@
 import webbrowser
 
 import requests
-from src.tracker.iss_tracker import get_iss_coordinates
 
 url = "https://commons.wikimedia.org/w/api.php"
 headers = {"User-Agent": "MyGeoImageApp/1.0 (suerderin@outlook.com)"}
@@ -40,6 +39,8 @@ def get_photos(latitude, longitude, radius=10000, limit=3):
 
 
 def main():
+    from src.tracker.iss_tracker import get_iss_coordinates
+
     latitude, longitude = get_iss_coordinates()
     print(f"ISS coordinates: {latitude}, {longitude}")
 
