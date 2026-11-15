@@ -33,5 +33,4 @@ A real-time International Space Station (ISS) orbital companion designed to comb
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/gencodyybot/mecprogramming.git](https://github.com/gencodyybot/mecprogramming.git)
-cd mecprogramming
+git clone https://github.com/gencodyybot/mecprogramming.git
