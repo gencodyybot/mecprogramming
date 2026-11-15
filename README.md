@@ -1,4 +1,4 @@
-# whatISSgoingon? 🛰️🌍
+# whatISSgoingon?
 
 A real-time International Space Station (ISS) orbital companion designed to combat astronaut isolation and nostalgia during long-duration spaceflight. By tracking the ISS in real time and streaming live local radio, weather, imagery, and cultural snapshots from the region directly below, **whatISSgoingon?** keeps crews connected to Earth.
 
