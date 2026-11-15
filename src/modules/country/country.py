@@ -38,6 +38,25 @@ try:
 except(KeyError):
     print("No country found at this location")
 
+def get_flag_url():
+    return flag_url
+
+def get_area_km():
+    return area_km
+
+def get_area_miles():
+    return area_miles
+
+def get_population():
+    return population
+
+def get_languages():
+    return languages
+
+def get_subregion():
+    return subregion
+
+
 
 
 # Append data to JSON file for debugging
