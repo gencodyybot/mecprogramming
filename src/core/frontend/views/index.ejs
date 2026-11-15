@@ -22,6 +22,7 @@
         color:white;
         display: flex;
         justify-content: center;
+        font-size: 1.6rem;
       }
 
       #globe{ 
@@ -40,9 +41,25 @@
         overflow-x: hidden;
       }
 
-      #radio-player {
+      body {
+        padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+      }
+
+      #radio-player-container {
         display: flex;
         justify-content: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem;
+        background-color: rgba(0, 0, 17, 0.9);
+        z-index: 1000;
+      }
+
+      #radio-player {
+        width: min(100%, 32rem);
       }
 
     </style>
@@ -61,10 +78,10 @@
        
       <div id="globe" ></div>
 
-     
-
-      
-
+    <div id="radio-player-container">
+      <audio id="radio-player" controls></audio>
+    </div>
+  
      <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
      <script src="/script.js" type="module"></script>
 </body>
