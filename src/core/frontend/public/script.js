@@ -30,7 +30,7 @@ async function updateRadio() {
   if (!response.ok) return
 
   const data = await response.json()
-  
+
   const streamUrl = data.stations?.find(station =>
   station.url_resolved &&
   !station.url_resolved.toLowerCase().includes('.m3u8')
@@ -84,15 +84,12 @@ function findCountryPolygon(name) {
 
 document.getElementById("country-name").textContent = country ? `Currently above ${country}` : 'No country Below'
 
-const country_polygon = findCountryPolygon(country)
-console.log({
-  status: locationResponse.status,
-  locationData,
-  country,
-  matched: Boolean(country_polygon)
-})
+const country_polygon = countryCode
+  ? countries.features.find(
+      feature => feature.properties['ISO3166-1-Alpha-2'] === countryCode
+    )
+  : undefined
 
 myGlobe.polygonsData(country_polygon ? [country_polygon] : [])
-
 updateRadio()
 setInterval(updateRadio, 90_000)
