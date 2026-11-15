@@ -16,5 +16,23 @@ app.get('/api/stations', async (req, res) => {
   res.status(pythonResponse.status).json(data)
 })
 
+app.get('/api/images', async (req, res) => {
+  const imageApiUrl = new URL('http://127.0.0.1:8000/images')
+  for (const parameter of ['latitude', 'longitude', 'radius', 'limit']) {
+    if (req.query[parameter] !== undefined) {
+      imageApiUrl.searchParams.set(parameter, String(req.query[parameter]))
+    }
+  }
+
+  try {
+    const pythonResponse = await fetch(imageApiUrl)
+    const data = await pythonResponse.json()
+    res.status(pythonResponse.status).json(data)
+  } catch (error) {
+    console.error('Failed to fetch images from the Python API:', error)
+    res.status(502).json({ error: 'Image service is unavailable' })
+  }
+})
+
 
 app.listen(3000)

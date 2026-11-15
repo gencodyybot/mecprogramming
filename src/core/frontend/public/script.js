@@ -22,14 +22,30 @@ const countryCode = locationData.address?.country_code?.toUpperCase()
 
 let lastTunedCountry = null
 
-async function updateRadio()  {
-  if (!countryCode || countryCode === lastTunedCountry) return
-  
-    const radio_response = await fetch(`/api/stations?country=${countryCode}`)
-    const data = await radio_response.json()
-   document.getElementById("radio-player").src =  data.stations[0]?.url_resolved
-}
+async function updateRadio() {
+  const code = countryCode ?? lastTunedCountry ?? 'NG'
+  if (!code || code === lastTunedCountry) return
 
+  const response = await fetch(`/api/stations?country=${encodeURIComponent(code)}`)
+  if (!response.ok) return
+
+  const data = await response.json()
+  
+  const streamUrl = data.stations?.find(station =>
+  station.url_resolved &&
+  !station.url_resolved.toLowerCase().includes('.m3u8')
+)?.url_resolved
+
+  const player = document.getElementById('radio-player')
+  const wasPlaying = !player.paused
+
+  player.src = streamUrl
+  lastTunedCountry = code
+
+  if (wasPlaying) {
+    player.play().catch(error => console.warn('Could not play the new station', error))
+  }
+}
 
 
 
@@ -78,5 +94,5 @@ console.log({
 
 myGlobe.polygonsData(country_polygon ? [country_polygon] : [])
 
-
+updateRadio()
 setInterval(updateRadio, 90_000)
