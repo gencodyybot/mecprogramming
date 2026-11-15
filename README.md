@@ -10,7 +10,7 @@ A real-time International Space Station (ISS) orbital companion designed to comb
 
 * **Live ISS Telemetry:** Tracks real-time latitude, longitude, and timezone overhead.
 * **Ground Radio & Seamless Failover:** Streams live local radio stations from the country below, automatically switching to ambient/lounge audio when flying over oceans or experiencing signal drops.
-* **Real-Time Ground Weather:** Displays live temperature, wind speed, and weather conditions with dynamic Bootstrap Icons.
+* **Real-Time Ground Weather:** Displays live temperature, wind speed, and weather conditions.
 * **Country & Cultural Context:** Surfaces country facts, flags, capitals, languages, local imagery, and adaptive UI color theming based on the region below.
 
 ---
