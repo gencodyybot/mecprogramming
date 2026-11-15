@@ -6,9 +6,17 @@
     <title>ISS Radio</title>
     <link rel="stylesheet" href="../styles/app.css">
     <style>
-
+   
       body {
         background-color: #000011 ;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: "IBM Plex Mono", monospace;
+
       }
 
       #title {
@@ -44,7 +52,36 @@
         display: flex;
         justify-content: center;
       }
+      
+      #temperature {
+  color: white;
+  text-align: center;
+}
 
+#news {
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 20px;
+  color: white;
+  background: #12122a;
+  border-radius: 12px;
+}
+
+#news-list {
+  padding-left: 20px;
+}
+
+#news-list li {
+  margin-bottom: 12px;
+}
+
+#news-list a {
+  color: #8bdcff;
+}
+
+#news-list a:hover {
+  text-decoration: none;
+}
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +95,15 @@
     <h4 id='country-name' class="ibm-plex-mono-regular">Currently at</h4>
     
        <audio id="radio-player" controls></audio>
+
+       <div id="temperature">Calculating temperature below the ISS</div>
+
        
+       <section style="color: white">
+  <h2>Photos near the ISS ground position</h2>
+  <p id="images-status">Loading photos…</p>
+  <div id="location-images"></div>
+</section>
       <div id="globe" ></div>
 
      

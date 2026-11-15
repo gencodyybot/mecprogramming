@@ -33,6 +33,13 @@ app.get('/api/images', async (req, res) => {
     res.status(502).json({ error: 'Image service is unavailable' })
   }
 })
+ 
+app.get("/api/weather", async (req,res) => {
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${req.query.latitude}&longitude=${req.query.longitude}&current=temperature_2m`)
+    const data =  await response.json()
+    res.status(response.status).json(data)
 
+
+})
 
 app.listen(3000)
