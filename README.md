@@ -25,7 +25,6 @@ A real-time International Space Station (ISS) orbital companion designed to comb
   * [Open-Meteo API](https://open-meteo.com/) — Live ground weather data
   * [REST Countries API](https://restcountries.com/) — Country facts, flags, capitals & languages
   * [Wikipedia REST API](https://www.mediawiki.org/wiki/API:REST_API) / Unsplash — Regional photos & descriptions
-  * ColorThief — Dynamic background color extraction
 
 The Express server exposes Wikimedia Commons geosearch photos at
 `GET /api/images?latitude=<lat>&longitude=<lon>`. Optional `radius` (1–10000,
