@@ -6,13 +6,13 @@
     <title>ISS Radio</title>
     <link rel="stylesheet" href="../styles/app.css">
     <style>
-      
+
       body {
         background-color: #000011 ;
       }
 
       #title {
-        color:white;  
+        color:white;
         display: flex;
         justify-content: center;
         font-size: 3rem;
@@ -74,12 +74,14 @@
 
     <h4 id='country-name' class="ibm-plex-mono-regular">Currently at</h4>
     
-    <div id="globe"></div>
+       <audio id="radio-player" controls></audio>
+       
+      <div id="globe" ></div>
 
     <div id="radio-player-container">
       <audio id="radio-player" controls></audio>
     </div>
-      
+  
      <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
      <script src="/script.js" type="module"></script>
 </body>
