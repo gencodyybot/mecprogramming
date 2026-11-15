@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISS Radio</title>
+    <style>
+      body {
+        background-color: lightblue ;
+      }
+      #globe{ 
+        
+      }
+    </style>
+
+</head>
+<body>
+    <h2>ISS RADIO</h2>
+
+     <h4>Currently at <%= locals.country || "Canada" %></h4>
+    
+
+      <div id="globe" >
+
+      </div>
+     <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
+     <script src="/script.js" type="module"></script>
+</body>
+</html>

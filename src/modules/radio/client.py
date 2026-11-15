@@ -44,8 +44,8 @@ def fetch_raw_stations(country_code, tag="music", limit=25):
         stations = response.json()
         _STATION_CACHE[cache_key] = (time.time(), stations)
         return stations
-
     return []
 
-stations = fetch_raw_stations("CA")
-print(stations[0]["name"], stations[0]["url_resolved"])
+# ----lines for testing/debugging----
+# stations = fetch_raw_stations("CA")
+# print(stations[0]["name"], stations[0]["url_resolved"])
