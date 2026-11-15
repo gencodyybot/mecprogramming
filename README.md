@@ -26,10 +26,6 @@ A real-time International Space Station (ISS) orbital companion designed to comb
   * [REST Countries API](https://restcountries.com/) - Country facts, flags, capitals & languages
   * [Wikipedia REST API](https://www.mediawiki.org/wiki/API:REST_API) / Unsplash - Regional photos & descriptions
 
-The Express server exposes Wikimedia Commons geosearch photos at
-`GET /api/images?latitude=<lat>&longitude=<lon>`. Optional `radius` (1–10000,
-default `10000`) and `limit` (1–50, default `3`) parameters are also supported.
-
 ---
 
 ## Getting Started
