@@ -13,12 +13,62 @@ const countries = await response.json()
 const issResponse = await fetch('https://api.wheretheiss.at/v1/satellites/25544')
 const iss = await issResponse.json()
 
+
+// Weather code
+const weatherResponse = await fetch(
+  `/api/weather?latitude=${iss.latitude}&longitude=${iss.longitude}`
+)
+const weatherData = await weatherResponse.json()
+
+if (weatherResponse.ok) {
+  document.getElementById('temperature').textContent =
+    `Temperature below the ISS: ${weatherData.current.temperature_2m}°C`
+}
+
+async function updateImages() {
+  const container = document.getElementById('location-images')
+  const status = document.getElementById('images-status')
+  container.replaceChildren()
+
+  try {
+    const response = await fetch(
+      `/api/images?latitude=${iss.latitude}&longitude=${iss.longitude}&limit=3`
+    )
+
+    if (!response.ok) throw new Error('Image request failed')
+
+    const photos = await response.json()
+
+    for (const photo of photos) {
+      const imageUrl = photo.thumb_url || photo.full_url
+      if (!imageUrl) continue
+
+      const image = document.createElement('img')
+      image.src = imageUrl
+      image.alt = photo.title || 'Nearby location'
+      image.width = 250
+      image.loading = 'lazy'
+
+      container.appendChild(image)
+    }
+
+    status.textContent = container.children.length
+      ? ''
+      : 'No nearby photos available.'
+  } catch (error) {
+    status.textContent = 'Photos unavailable right now.'
+    console.error(error)
+  }
+}
+
+updateImages()
 //Reverse Geocoding
 const url = `https://nominatim.openstreetmap.org/reverse?lat=${iss.latitude}&lon=${iss.longitude}&format=jsonv2`
 const locationResponse = await fetch(url)
 const locationData = await locationResponse.json()
 const country = locationData.address?.country
 const countryCode = locationData.address?.country_code?.toUpperCase()
+
 
 let lastTunedCountry = null
 

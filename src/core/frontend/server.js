@@ -45,6 +45,11 @@ app.get("/api/stations", async (req, res) => {
     res.status(502).json({ error: "Python backend unreachable" })
   }
 })
+ 
+app.get("/api/weather", async (req,res) => {
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${req.query.latitude}&longitude=${req.query.longitude}&current=temperature_2m`)
+    const data =  await response.json()
+    res.status(response.status).json(data)
 
 if (require.main === module) app.listen(3000)
 module.exports = app
